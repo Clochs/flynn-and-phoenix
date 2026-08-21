@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flynn & Phoenix — Second Hand, Vintage & Handmade</title>
+<meta name="description" content="Flynn & Phoenix: a small shop of secondhand, vintage, and handmade goods. Art, crystals, and repurposed treasures from a stay-at-home mom in McKinleyville.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0b0d0a;
+    --panel: #10140f;
+    --forest: #1c2b1e;
+    --forest-deep: #12210f;
+    --bone: #ece6d8;
+    --bone-dim: #c9c2b0;
+    --gold: #ab8a4f;
+    --gold-bright: #d3b273;
+    --rose: #6b2737;
+    --line: rgba(171,138,79,0.28);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--black);
+    color:var(--bone);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:#0b0d0a;}
+
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+    color:var(--bone);
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Cormorant SC', serif;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    color:var(--gold-bright);
+  }
+  a{color:inherit;}
+  img{display:block; max-width:100%;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 6vw;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- corner-frame signature ---------- */
+  .framed{position:relative;}
+  .framed::before,.framed::after,
+  .framed .cf-tr,.framed .cf-bl{
+    content:"";
+    position:absolute;
+    width:26px; height:26px;
+    border:2px solid var(--gold);
+    opacity:0.85;
+    pointer-events:none;
+  }
+  .framed::before{ top:-9px; left:-9px; border-right:none; border-bottom:none; }
+  .framed .cf-tr{ top:-9px; right:-9px; border-left:none; border-bottom:none; }
+  .framed .cf-bl{ bottom:-9px; left:-9px; border-right:none; border-top:none; }
+  .framed::after{ bottom:-9px; right:-9px; border-left:none; border-top:none; }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:linear-gradient(to bottom, rgba(11,13,10,0.92), rgba(11,13,10,0));
+    padding:22px 0 40px;
+    transition:background 0.4s ease, padding 0.4s ease;
+  }
+  header.scrolled{
+    background:rgba(11,13,10,0.92);
+    backdrop-filter:blur(6px);
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; max-width:1180px; margin:0 auto; padding:0 6vw;}
+  .logo{
+    font-family:'Cormorant SC', serif;
+    font-size:1.35rem;
+    letter-spacing:0.18em;
+    color:var(--bone);
+    text-decoration:none;
+  }
+  .logo em{ font-style:normal; color:var(--gold-bright); }
+  .navlinks{display:flex; gap:38px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    font-family:'Cormorant SC', serif;
+    font-size:0.85rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--bone-dim);
+    border-bottom:1px solid transparent;
+    padding-bottom:4px;
+    transition:color 0.25s, border-color 0.25s;
+  }
+  .navlinks a:hover{ color:var(--gold-bright); border-color:var(--gold); }
+  .navtoggle{ display:none; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:#000;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('images/IMG_4282.jpeg');
+    background-size:cover;
+    background-position:center 30%;
+    filter:saturate(0.55) brightness(0.34) contrast(1.05);
+    transform:scale(1.06);
+  }
+  .hero-veil{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(28,43,30,0.35), transparent 55%),
+      linear-gradient(180deg, rgba(11,13,10,0.55) 0%, rgba(11,13,10,0.75) 55%, rgba(11,13,10,0.98) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:1180px; margin:0 auto; padding:0 6vw;
+    width:100%;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem, 7vw, 5.6rem);
+    line-height:1.02;
+    max-width:14ch;
+    font-style:italic;
+    font-weight:400;
+  }
+  .hero h1 span{ display:block; color:var(--gold-bright); font-style:normal; }
+  .hero-sub{
+    margin-top:26px;
+    max-width:44ch;
+    font-size:1.18rem;
+    color:var(--bone-dim);
+  }
+  .hero-tags{
+    margin-top:34px;
+    display:flex; flex-wrap:wrap; gap:14px 28px;
+  }
+  .hero-tags span{
+    font-family:'Cormorant SC', serif;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-size:0.82rem;
+    color:var(--gold-bright);
+    position:relative;
+    padding-left:16px;
+  }
+  .hero-tags span::before{
+    content:"✦"; position:absolute; left:0; top:0; color:var(--gold); font-size:0.75rem;
+  }
+  .scroll-cue{
+    position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    z-index:2;
+  }
+  .scroll-cue .line{ width:1px; height:50px; background:linear-gradient(var(--gold), transparent); animation:pulse-line 2.4s ease-in-out infinite; }
+  .scroll-cue span{ font-family:'Cormorant SC',serif; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--bone-dim); }
+  @keyframes pulse-line{ 0%,100%{opacity:0.35;} 50%{opacity:1;} }
+
+  /* ---------- section basics ---------- */
+  section{ position:relative; padding:130px 0; }
+  .section-head{ max-width:640px; margin-bottom:64px; }
+  .section-head h2{ font-size:clamp(2.1rem, 4vw, 3rem); margin-top:14px; font-style:italic; }
+  .rule{
+    width:64px; height:1px; background:var(--gold); margin:20px 0 0;
+  }
+  .center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+  /* ---------- philosophy / manifesto ---------- */
+  .philosophy{ background:var(--panel); }
+  .letter{
+    display:grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap:70px;
+    align-items:start;
+  }
+  .letter-figure{ position:relative; }
+  .letter-figure img{ width:100%; border-radius:2px; filter:saturate(0.85) contrast(1.03); }
+  .letter-quote{
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.5;
+    color:var(--bone);
+    border-left:1px solid var(--gold);
+    padding-left:28px;
+    margin:0 0 34px;
+  }
+  .letter-body p{ color:var(--bone-dim); margin:0 0 20px; font-size:1.06rem; }
+  .letter-body p:last-of-type{ margin-bottom:0; }
+  .signoff{
+    margin-top:34px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--gold-bright);
+    font-size:1.2rem;
+  }
+  .signoff small{
+    display:block;
+    font-family:'EB Garamond', serif;
+    font-style:normal;
+    color:var(--bone-dim);
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    margin-top:4px;
+  }
+
+  /* ---------- three paths / categories ---------- */
+  .paths-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:38px;
+  }
+  .path-card{
+    position:relative;
+    background:var(--forest);
+    border:1px solid var(--line);
+    overflow:hidden;
+    text-decoration:none;
+    display:block;
+    transition:transform 0.5s ease, border-color 0.4s ease;
+  }
+  .path-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
+  .path-img{ height:340px; overflow:hidden; }
+  .path-img img{ width:100%; height:100%; object-fit:cover; transition:transform 0.9s ease; }
+  .path-card:hover .path-img img{ transform:scale(1.07); }
+  .path-body{ padding:28px 26px 32px; }
+  .path-body .eyebrow{ display:block; margin-bottom:10px; }
+  .path-body h3{ font-size:1.5rem; font-style:italic; margin-bottom:12px; }
+  .path-body p{ color:var(--bone-dim); font-size:0.98rem; margin:0; }
+  .path-arrow{ margin-top:18px; font-family:'Cormorant SC',serif; letter-spacing:0.14em; font-size:0.78rem; text-transform:uppercase; color:var(--gold-bright); }
+
+  /* ---------- gallery ---------- */
+  .gallery{ background:var(--panel); }
+  .filters{
+    display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px;
+  }
+  .filter-btn{
+    font-family:'Cormorant SC', serif;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    color:var(--bone-dim);
+    background:transparent;
+    border:1px solid var(--line);
+    padding:10px 20px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+  }
+  .filter-btn:hover{ color:var(--gold-bright); border-color:var(--gold); }
+  .filter-btn.active{ background:var(--gold); color:#0b0d0a; border-color:var(--gold); }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .piece{
+    position:relative;
+    background:var(--forest);
+    border:1px solid var(--line);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .piece-img{ position:relative; overflow:hidden; aspect-ratio:4/5; background:#000; cursor:zoom-in; }
+  .piece-img img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.8s ease, filter 0.8s ease;
+    filter:saturate(0.92);
+  }
+  .piece-img.contain-fit{ background:#0d100c; }
+  .piece-img.contain-fit img{ object-fit:contain; padding:14px; }
+  .piece:hover .piece-img img{ transform:scale(1.06); filter:saturate(1.05); }
+  .piece-img.contain-fit:hover img{ transform:scale(1.02); }
+  .piece-img .expand-hint{
+    position:absolute; top:14px; right:14px;
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(11,13,10,0.55); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--bone); opacity:0; transition:opacity 0.3s ease;
+    pointer-events:none;
+  }
+  .piece:hover .expand-hint{ opacity:1; }
+
+  /* ---------- lightbox ---------- */
+  .lightbox{
+    position:fixed; inset:0; z-index:1000;
+    background:rgba(6,7,5,0.96);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition:opacity 0.3s ease;
+    padding:60px 24px;
+  }
+  .lightbox.open{ opacity:1; visibility:visible; }
+  .lb-stage{ max-width:min(90vw, 1000px); max-height:78vh; display:flex; align-items:center; justify-content:center; }
+  .lb-stage img{
+    max-width:100%; max-height:78vh;
+    object-fit:contain;
+    border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  }
+  .lb-close{
+    position:absolute; top:22px; right:28px;
+    background:none; border:none; color:var(--bone);
+    font-size:2.2rem; line-height:1; cursor:pointer;
+    font-family:'EB Garamond', serif; font-weight:300;
+    transition:color 0.25s ease;
+  }
+  .lb-close:hover{ color:var(--gold-bright); }
+  .lb-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(28,43,30,0.6); border:1px solid var(--line);
+    color:var(--bone); width:48px; height:48px; border-radius:50%;
+    cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .lb-nav:hover{ background:var(--gold); color:#0b0d0a; }
+  .lb-prev{ left:20px; }
+  .lb-next{ right:20px; }
+  .lb-nav.hide{ display:none; }
+  .lb-caption{
+    position:absolute; bottom:28px; left:0; right:0;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic; font-size:1.1rem; color:var(--bone-dim);
+  }
+  @media (max-width:640px){
+    .lb-nav{ width:40px; height:40px; }
+    .lb-prev{ left:8px; } .lb-next{ right:8px; }
+    .lb-close{ top:14px; right:16px; }
+  }
+  .sold-ribbon{
+    position:absolute; top:16px; left:-34px;
+    background:var(--rose); color:var(--bone);
+    font-family:'Cormorant SC',serif; letter-spacing:0.16em; text-transform:uppercase; font-size:0.72rem;
+    padding:5px 40px; transform:rotate(-40deg);
+    box-shadow:0 2px 8px rgba(0,0,0,0.4);
+  }
+  .soon-ribbon{
+    position:absolute; top:16px; left:-34px;
+    background:var(--gold); color:#0b0d0a;
+    font-family:'Cormorant SC',serif; letter-spacing:0.14em; text-transform:uppercase; font-size:0.68rem;
+    padding:5px 36px; transform:rotate(-40deg);
+    box-shadow:0 2px 8px rgba(0,0,0,0.4);
+  }
+  .piece-info{ padding:20px 22px 22px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .piece-info h4{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.18rem; font-weight:500; color:var(--bone); }
+  .piece-note{ font-size:0.85rem; color:var(--bone-dim); font-style:italic; line-height:1.4; margin-top:-4px; }
+  .piece-meta{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:6px; }
+  .piece-price{ font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--gold-bright); }
+  .buy-btn{
+    font-family:'Cormorant SC',serif; letter-spacing:0.1em; text-transform:uppercase; font-size:0.76rem;
+    text-decoration:none; color:#0b0d0a; background:var(--gold);
+    padding:9px 18px; border:1px solid var(--gold);
+    transition:background 0.25s, color 0.25s;
+  }
+  .buy-btn:hover{ background:var(--gold-bright); }
+  .buy-btn.inquire{ background:transparent; color:var(--gold-bright); }
+  .buy-btn.inquire:hover{ background:var(--gold); color:#0b0d0a; }
+  .buy-btn.sold{
+    background:transparent; color:var(--bone-dim); border-color:var(--line);
+    cursor:default; pointer-events:none;
+  }
+  .piece.hide{ display:none; }
+
+  .gallery-note{
+    margin-top:56px;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--bone-dim);
+    font-size:1.15rem;
+  }
+  .gallery-note strong{ color:var(--gold-bright); font-style:normal; }
+
+  /* ---------- visit ---------- */
+  .visit{
+    background:var(--forest-deep);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .visit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+  }
+  .visit-card{
+    background:rgba(0,0,0,0.22);
+    border:1px solid var(--line);
+    padding:40px;
+  }
+  .visit-card h3{ font-style:italic; font-size:1.7rem; margin-bottom:18px; }
+  .visit-card p{ color:var(--bone-dim); margin:0 0 10px; }
+  .visit-card .label{ font-family:'Cormorant SC',serif; letter-spacing:0.14em; text-transform:uppercase; font-size:0.75rem; color:var(--gold-bright); display:block; margin-top:22px; margin-bottom:6px;}
+  .visit-card .label:first-of-type{ margin-top:0; }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:80px 0 50px;
+    text-align:center;
+  }
+  footer .mark{
+    font-family:'Cormorant SC', serif;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-size:1rem;
+    color:var(--gold-bright);
+  }
+  footer .together{
+    margin:22px auto 8px;
+    max-width:36ch;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.3rem;
+    color:var(--bone);
+  }
+  footer .mote{
+    font-family:'Cormorant SC', serif;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-size:0.85rem;
+    margin-top:14px;
+  }
+  footer .credit{
+    margin-top:50px;
+    font-size:0.8rem;
+    color:rgba(201,194,176,0.5);
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    .letter{ grid-template-columns:1fr; gap:40px; }
+    .paths-grid{ grid-template-columns:1fr; }
+    .grid{ grid-template-columns:repeat(2, 1fr); }
+    .visit-grid{ grid-template-columns:1fr; gap:40px; }
+    .navlinks{ display:none; }
+  }
+  @media (max-width:560px){
+    .grid{ grid-template-columns:1fr; }
+    body{ font-size:16.5px; }
+    section{ padding:90px 0; }
+    .visit-card{ padding:28px; }
+  }
+</style>
+</head>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  // Sends people clicking an "invite" or "reset password" email link
+  // to the dashboard login screen, where the widget picks up and
+  // finishes the process automatically.
+  if (window.location.hash && window.location.hash.match(/confirmation_token|invite_token|recovery_token/)) {
+    window.location.href = "/admin/" + window.location.hash;
+  }
+</script>
+<body>
+
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="logo">FLYNN <em>&</em> PHOENIX</a>
+    <ul class="navlinks">
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#shop">The Shop</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-content">
+    <p class="eyebrow">A small shop, second hand & handmade</p>
+    <h1>Death is beautiful.<span>So is everything else.</span></h1>
+    <p class="hero-sub">Art can be found in everything — in what's discarded, what's worn soft by other lives, what's already been here a million years. We just help you notice it again.</p>
+    <div class="hero-tags">
+      <span>Vintage Clothing</span>
+      <span>Art & Crystals</span>
+      <span>Collectables</span>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="line"></div><span>Begin</span></div>
+</section>
+
+<section class="philosophy" id="philosophy">
+  <div class="wrap letter reveal">
+    <div class="letter-figure framed">
+      <span class="cf-tr"></span><span class="cf-bl"></span>
+      <img src="images/IMG_4275.jpeg" alt="A memento mori terrarium made by Johnna — bone, moss, and dried rose under glass">
+    </div>
+    <div class="letter-body">
+      <p class="eyebrow">A note from the owner</p>
+      <p class="letter-quote">"Beauty already exists. It's been here for millions of years. How we harness that — through nature, and away from heaps of over-produced 'trending' products — will absolutely start to heal us."</p>
+      <p>Flynn & Phoenix is a small shop made and run by a stay-at-home mom. I wanted a cleaner life for myself and my children — not just cleaner in the foods that enrich us or the medicines that heal us, but clean in our souls, bodies, and minds too.</p>
+      <p>Everything here is pulled from nature or recycled from someone else's life. A little of everything, with one rule: second hand, vintage, or handmade. My art reflects how I feel about life and death, and how beauty isn't something you have to chase by following a trend.</p>
+      <p>Healing starts small. It begins with supporting a small business, and it ends with all of us finding art in nature, in life and death, in eating well, in recycling, in whole foods and medicinals. You don't have to buy anything. Just look, and get inspired.</p>
+      <div class="signoff">
+        With love, Johnna
+        <small>Owner, artist & mother — Flynn & Phoenix</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we offer</p>
+      <h2>Three paths back to yourself</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="paths-grid reveal">
+      <a href="#gallery" class="path-card" data-filter="art">
+        <div class="path-img"><img src="images/IMG_4282.jpeg" alt="Moth and bone terrarium art piece"></div>
+        <div class="path-body">
+          <span class="eyebrow">Made by hand</span>
+          <h3>Art & Curiosities</h3>
+          <p>Bone, moss, crystal, and dried bloom, arranged under glass. Memento mori pieces that hold life and death in the same breath — because they were never really separate.</p>
+          <span class="path-arrow">View the pieces →</span>
+        </div>
+      </a>
+      <a href="#gallery" class="path-card" data-filter="clothing">
+        <div class="path-img"><img src="images/IMG_4376.jpeg" alt="Vintage chambray dress, secondhand clothing"></div>
+        <div class="path-body">
+          <span class="eyebrow">Worn before, loved again</span>
+          <h3>Vintage Clothing</h3>
+          <p>Nothing new here — just pieces with a past, chosen for the fabric, the cut, and the life already stitched into them. One woman's closet, rescued from the landfill.</p>
+          <span class="path-arrow">View the pieces →</span>
+        </div>
+      </a>
+      <a href="#gallery" class="path-card" data-filter="collectables">
+        <div class="path-img"><img src="images/IMG_4335.jpeg" alt="Vintage porcelain figurine collectable"></div>
+        <div class="path-body">
+          <span class="eyebrow">Found, not made new</span>
+          <h3>Collectables & Treasures</h3>
+          <p>Porcelain figurines, tapestry bags, small forgotten things that deserve a second shelf. Imperfect, aged, and better for it.</p>
+          <span class="path-arrow">View the pieces →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The growing collection</p>
+      <h2>From the shop floor</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="art">Art & Crystals</button>
+      <button class="filter-btn" data-filter="clothing">Vintage Clothing</button>
+      <button class="filter-btn" data-filter="collectables">Collectables</button>
+    </div>
+
+    <div class="grid" id="galleryGrid">
+      <!-- Product cards are generated automatically from products.js -->
+    </div>
+
+    <p class="gallery-note reveal">Johnna has a giant backlog to photograph — <strong>new pieces are added by hand, daily.</strong> Come back often.</p>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#10094;</button>
+  <div class="lb-stage">
+    <img id="lbImg" src="" alt="">
+  </div>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#10095;</button>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <p class="eyebrow">Come find us</p>
+      <h2 style="font-style:italic; font-size:clamp(2.1rem,4vw,3rem); margin-top:14px;">In person, and here</h2>
+      <div class="rule"></div>
+      <p style="margin-top:28px; color:var(--bone-dim); max-width:46ch;">This isn't a competition, and we're not asking you to buy anything. Take what inspires you and use it in your own life. We're building a better, cleaner world for our children — you're welcome to start small, right here.</p>
+    </div>
+    <div class="visit-card reveal">
+      <h3>Flynn & Phoenix</h3>
+      <span class="label">Art & Crystals — In Person</span>
+      <p>The Sea Goat<br>McKinleyville, California</p>
+      <span class="label">Online</span>
+      <p>New vintage clothing, art & collectables added to this shop daily.</p>
+      <span class="label">Contact</span>
+      <p id="contactEmail">Add your email, phone, or Instagram handle here so visitors can reach you directly.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mark">Flynn & Phoenix</p>
+    <p class="together">We are in this together. Please look on, and get inspired.</p>
+    <p class="mote">Mote it be.</p>
+    <p class="credit">Johnna, owner & artist — Sam, website design & operator</p>
+  </div>
+</footer>
+
+<script>
+  let PRODUCTS = [];
+  let SHOP_EMAIL = "hello@flynnandphoenix.com"; // fallback until settings.json loads
+  const CATEGORY_LABELS = { art: 'Art & Curiosities', clothing: 'Vintage Clothing', collectables: 'Collectables' };
+
+  // normalize each product to always have an "images" array,
+  // even if an older entry still uses a single "image" field
+  function getImages(p){
+    if (Array.isArray(p.images) && p.images.length) return p.images;
+    if (p.image) return [p.image];
+    return [];
+  }
+
+  // build product cards from PRODUCTS (loaded from products.json)
+  function renderProducts(){
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = PRODUCTS.map((p, i) => {
+      const imgs = getImages(p);
+      const priceHtml = (p.price != null && p.price !== '')
+        ? `$${Number(p.price).toFixed(0)}`
+        : `Message for price`;
+
+      let ctaHtml;
+      if (p.sold) {
+        ctaHtml = `<span class="buy-btn sold">Sold</span>`;
+      } else if (p.stripeLink) {
+        ctaHtml = `<a class="buy-btn" href="${p.stripeLink}" target="_blank" rel="noopener">Buy Now</a>`;
+      } else {
+        ctaHtml = `<a class="buy-btn inquire" href="mailto:${SHOP_EMAIL}?subject=${encodeURIComponent('Inquiry: ' + p.name)}">Inquire</a>`;
+      }
+
+      const fitClass = p.fit === 'contain' ? ' contain-fit' : '';
+      let ribbonHtml = '';
+      if (p.sold) ribbonHtml = '<span class="sold-ribbon">Sold</span>';
+      else if (p.comingSoon) ribbonHtml = '<span class="soon-ribbon">Coming Soon</span>';
+
+      return `
+        <div class="piece" data-cat="${p.category}">
+          <div class="piece-img${fitClass}" data-product-index="${i}" role="button" tabindex="0" aria-label="Expand photo of ${p.name}">
+            ${ribbonHtml}
+            <img src="${imgs[0] || ''}" alt="${p.alt || p.name}">
+            <span class="expand-hint">&#10021;</span>
+          </div>
+          <div class="piece-info">
+            <span class="eyebrow">${CATEGORY_LABELS[p.category] || p.category}</span>
+            <h4>${p.name}</h4>
+            ${p.note ? `<p class="piece-note">${p.note}</p>` : ''}
+            <div class="piece-meta">
+              <span class="piece-price">${priceHtml}</span>
+              ${ctaHtml}
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  // fill in the shop email wherever it belongs
+  function applyShopEmail(){
+    const contactEmailEl = document.getElementById('contactEmail');
+    if (contactEmailEl) {
+      contactEmailEl.innerHTML = `<a href="mailto:${SHOP_EMAIL}" style="color:var(--gold-bright); text-decoration:none;">${SHOP_EMAIL}</a>`;
+    }
+  }
+
+  // load the catalog and settings that Johnna edits in /admin, then render.
+  // cache-busted with a timestamp so a fresh save always shows immediately
+  // instead of a browser serving a stale cached copy of the JSON.
+  Promise.all([
+    fetch('products.json?v=' + Date.now()).then(r => r.ok ? r.json() : { products: [] }).catch(() => ({ products: [] })),
+    fetch('settings.json?v=' + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({}))
+  ]).then(([productData, settingsData]) => {
+    PRODUCTS = productData.products || [];
+    if (settingsData.shopEmail) SHOP_EMAIL = settingsData.shopEmail;
+    renderProducts();
+    applyShopEmail();
+  });
+
+  // header background on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+  // safety net: if a browser's scroll/intersection timing ever fails to
+  // trigger the fade-in (seen on some mobile devices), force everything
+  // visible after 2.5s so content can never get stuck invisible
+  setTimeout(() => { revealEls.forEach(el => el.classList.add('in')); }, 2500);
+
+  // gallery filters (re-run after products render, using event delegation on live nodes)
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  function applyFilter(filter){
+    filterButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+    document.querySelectorAll('.piece').forEach(p => {
+      p.classList.toggle('hide', filter !== 'all' && p.dataset.cat !== filter);
+    });
+  }
+  filterButtons.forEach(b => b.addEventListener('click', () => applyFilter(b.dataset.filter)));
+
+  // "view the pieces" cards jump + filter
+  document.querySelectorAll('.path-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const filter = card.dataset.filter;
+      if(filter){ setTimeout(() => applyFilter(filter), 400); }
+    });
+  });
+
+  // ---------- lightbox ----------
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+  const lbClose = document.getElementById('lbClose');
+
+  let lbImages = [];
+  let lbIndex = 0;
+  let lbName = '';
+
+  function showLightboxImage(){
+    lbImg.src = lbImages[lbIndex];
+    const count = lbImages.length > 1 ? ` (${lbIndex + 1} of ${lbImages.length})` : '';
+    lbCaption.textContent = lbName + count;
+    const multi = lbImages.length > 1;
+    lbPrev.classList.toggle('hide', !multi);
+    lbNext.classList.toggle('hide', !multi);
+  }
+
+  function openLightbox(productIndex){
+    const p = PRODUCTS[productIndex];
+    if(!p) return;
+    lbImages = getImages(p);
+    lbName = p.name;
+    lbIndex = 0;
+    showLightboxImage();
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('galleryGrid').addEventListener('click', (e) => {
+    const target = e.target.closest('.piece-img');
+    if(target){ openLightbox(Number(target.dataset.productIndex)); }
+  });
+  document.getElementById('galleryGrid').addEventListener('keydown', (e) => {
+    if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('piece-img')){
+      e.preventDefault();
+      openLightbox(Number(e.target.dataset.productIndex));
+    }
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox){ closeLightbox(); } });
+  lbPrev.addEventListener('click', () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); });
+  lbNext.addEventListener('click', () => { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); });
+
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft' && lbImages.length > 1){ lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); }
+    if(e.key === 'ArrowRight' && lbImages.length > 1){ lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded photos get saved, and the web path used to display them
+media_folder: "images"
+public_folder: "/images"
+
+# Show a friendly "Draft saved" / "Published" flow instead of raw git talk
+publish_mode: simple
+
+collections:
+  - name: "products"
+    label: "Shop Items"
+    label_singular: "Item"
+    description: "Everything for sale on the site. Add, edit, or remove items here — changes go live automatically within about a minute of saving."
+    files:
+      - name: "catalog"
+        label: "Product Catalog"
+        file: "products.json"
+        fields:
+          - label: "Items"
+            name: "products"
+            widget: "list"
+            summary: "{{name}} — {{fields.price}}"
+            fields:
+              - label: "Item ID"
+                name: "id"
+                widget: "string"
+                hint: "Only used behind the scenes. Use short lowercase words with dashes, e.g. blue-glass-vase. Don't change this after the item has been created."
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Shown as the item's title on the site."
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Art & Curiosities", value: "art" }
+                  - { label: "Vintage Clothing", value: "clothing" }
+                  - { label: "Collectables", value: "collectables" }
+              - label: "Price ($)"
+                name: "price"
+                widget: "number"
+                value_type: "float"
+                required: false
+                hint: "Leave blank to show 'Message for price' instead of a number."
+              - label: "Photos"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.image}}"
+                fields:
+                  - { label: "Photo", name: "image", widget: "image" }
+                hint: "Add one or more photos. The first one is used as the main photo. Click a photo on the live site to see all of them."
+              - label: "Photo Description"
+                name: "alt"
+                widget: "string"
+                required: false
+                hint: "A plain description of the photo, for screen readers and search engines. Example: Vintage green glass vase with gold trim."
+              - label: "Note"
+                name: "note"
+                widget: "string"
+                required: false
+                hint: "Optional. Shows in small italic text under the name — good for condition notes, e.g. 'Has a small chip on the base.'"
+              - label: "Photo Fit"
+                name: "fit"
+                widget: "select"
+                required: false
+                default: "cover"
+                options:
+                  - { label: "Fill the frame (default, good for most photos)", value: "cover" }
+                  - { label: "Show the whole photo uncropped (good for paintings, flat-lays)", value: "contain" }
+              - label: "Coming Soon"
+                name: "comingSoon"
+                widget: "boolean"
+                default: false
+                required: false
+                hint: "Turn on to show a 'Coming Soon' ribbon instead of a Buy button."
+              - label: "Sold"
+                name: "sold"
+                widget: "boolean"
+                default: false
+                hint: "Turn on once it's sold. Keeps the item visible with a 'Sold' ribbon instead of removing it."
+              - label: "Stripe Payment Link"
+                name: "stripeLink"
+                widget: "string"
+                required: false
+                hint: "Paste the link from Stripe (Payment Links → your item) once it's ready to sell. Leave blank to show an 'Inquire' button instead."
+
+  - name: "settings"
+    label: "Shop Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "settings.json"
+        fields:
+          - label: "Contact Email"
+            name: "shopEmail"
+            widget: "string"
+            hint: "Used for the 'Inquire' buttons and the Visit section."

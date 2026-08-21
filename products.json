@@ -1,0 +1,285 @@
+{
+  "products": [
+    {
+      "id": "moth-bone-dome",
+      "name": "Moth & Bone Dome",
+      "category": "art",
+      "price": 68,
+      "images": [
+        "images/IMG_4282.jpeg"
+      ],
+      "alt": "Cinnabar moth resting in a memento mori terrarium with gold frame and moss",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "skull-succulent-dome",
+      "name": "Skull & Succulent Dome",
+      "category": "art",
+      "price": 58,
+      "images": [
+        "images/IMG_4307.jpeg"
+      ],
+      "alt": "Skull and succulent terrarium under a glass dome",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "carnelian-amethyst-globe",
+      "name": "Carnelian & Amethyst Globe",
+      "category": "art",
+      "price": 42,
+      "images": [
+        "images/IMG_4289.jpeg"
+      ],
+      "alt": "Hand holding a small crystal terrarium with gold frame and moss",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "rainbow-stripe-romper",
+      "name": "Rainbow Stripe Romper",
+      "category": "clothing",
+      "price": 45,
+      "images": [
+        "images/IMG_4846.jpeg",
+        "images/IMG_4399.jpeg"
+      ],
+      "alt": "Vintage pastel rainbow striped romper with a giraffe patch",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "chambray-sundress",
+      "name": "Chambray Sundress",
+      "category": "clothing",
+      "price": 38,
+      "images": [
+        "images/IMG_4368.jpeg"
+      ],
+      "alt": "Model in a vintage chambray sundress by a rail crossing sign",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "fair-isle-knit",
+      "name": "Fair Isle Knit Sweater",
+      "category": "clothing",
+      "price": 22,
+      "images": [
+        "images/IMG_4352.jpeg",
+        "images/Screenshot_2026-08-12_at_10_28.56_PM.jpeg"
+      ],
+      "alt": "Model smiling in a vintage fair isle knit sweater",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "porcelain-lady-gilt-gown",
+      "name": "Porcelain Lady, Gilt Gown",
+      "category": "collectables",
+      "price": 45,
+      "images": [
+        "images/IMG_4335.jpeg"
+      ],
+      "alt": "Vintage porcelain figurine in a white gold-trimmed gown",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "porcelain-girl-sunhat",
+      "name": "Porcelain Girl, Sun Hat",
+      "category": "collectables",
+      "price": 38,
+      "images": [
+        "images/IMG_4322.jpeg"
+      ],
+      "alt": "Vintage porcelain figurine of a girl in a sun hat",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "tapestry-carry-all",
+      "name": "Tapestry Carry-All Bag",
+      "category": "collectables",
+      "price": 32,
+      "images": [
+        "images/IMG_4313.jpeg"
+      ],
+      "alt": "Vintage tapestry handbag with woven castle scene",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "as-is-menagerie",
+      "name": "As-Is Menagerie",
+      "category": "collectables",
+      "price": 18,
+      "images": [
+        "images/IMG_4324.jpeg"
+      ],
+      "alt": "Vintage broken porcelain figurine beside a small dog figurine, sold as-is",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "windowpane-tie-front-shirt",
+      "name": "Windowpane Tie-Front Shirt",
+      "category": "clothing",
+      "price": 18,
+      "images": [
+        "images/IMG_4879.jpeg"
+      ],
+      "alt": "Vintage cream and blue windowpane plaid button-up shirt, tied at the waist",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "bird-and-deer-figurine",
+      "name": "Bird & Deer Figurine",
+      "category": "collectables",
+      "price": 45,
+      "images": [
+        "images/IMG_4902.jpeg"
+      ],
+      "alt": "Dark iridescent ceramic figurine of a bird perched beside a deer with gold antlers",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "moth-glass-knob-dome",
+      "name": "Moth Under Glass",
+      "category": "art",
+      "price": 75,
+      "images": [
+        "images/IMG_4903.jpeg"
+      ],
+      "alt": "Large moth resting atop a glass dome terrarium with a gold frame and moss inside",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "skull-toadstool-duo-dome",
+      "name": "Skull & Toadstool Dome",
+      "category": "art",
+      "price": 25,
+      "images": [
+        "images/IMG_4906.jpeg"
+      ],
+      "alt": "Glass dome terrarium with a skull, amethyst crystal, and red toadstool on moss",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "driftwood-skull-dome",
+      "name": "Driftwood & Skull Dome",
+      "category": "art",
+      "price": 80,
+      "images": [
+        "images/IMG_4911.jpeg"
+      ],
+      "alt": "Hand holding a glass dome terrarium with a skull, driftwood, and moss",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "porcelain-lady-pink-ruffle",
+      "name": "Porcelain Lady, Pink Ruffle Gown",
+      "category": "collectables",
+      "price": 50,
+      "images": [
+        "images/IMG_4909.jpeg"
+      ],
+      "alt": "Vintage porcelain figurine of a woman in a pink ruffled gown holding a sun hat",
+      "note": "Intact, but has a small crack on one hand. Doubles as a ring holder inside.",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "bee-succulent-dome",
+      "name": "Bee & Succulent Dome",
+      "category": "art",
+      "price": 55,
+      "images": [
+        "images/IMG_4908.jpeg"
+      ],
+      "alt": "Small glass dome terrarium with a bumblebee, succulents, and a gold frame fragment",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "claw-shell-globe",
+      "name": "Claw & Shell Globe",
+      "category": "art",
+      "price": 25,
+      "images": [
+        "images/IMG_4912.jpeg"
+      ],
+      "alt": "Small glass globe terrarium on a cork base with a claw, shell, and moss",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "farmhouse-creek-painting",
+      "name": "Farmhouse & Creek, Framed Painting",
+      "category": "art",
+      "price": null,
+      "images": [
+        "images/IMG_4915.jpeg"
+      ],
+      "alt": "Framed vintage oil painting of a barn, windmill, and creek with mountains in the background",
+      "fit": "contain",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "singer-sewing-machine",
+      "name": "Antique Singer Sewing Machine",
+      "category": "collectables",
+      "price": 450,
+      "images": [
+        "images/IMG_4913.jpeg"
+      ],
+      "alt": "Antique Singer treadle sewing machine with ornate gold scrollwork detailing",
+      "comingSoon": true,
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "red-velour-vneck-sweater",
+      "name": "Red Velour V-Neck Sweater",
+      "category": "clothing",
+      "price": 20,
+      "images": [
+        "images/Screenshot_2026-08-12_at_10_27.52_PM.jpeg"
+      ],
+      "alt": "Vintage rust red velour v-neck sweater",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "pink-floral-ruffle-blouse",
+      "name": "Pink Floral Ruffle Blouse",
+      "category": "clothing",
+      "price": 25,
+      "images": [
+        "images/Screenshot_2026-08-12_at_10_28.17_PM.jpeg"
+      ],
+      "alt": "Vintage pink and blue floral blouse with a ruffled button-front collar",
+      "stripeLink": "",
+      "sold": false
+    },
+    {
+      "id": "green-floral-tie-skirt",
+      "name": "Green Floral Tie-Waist Skirt",
+      "category": "clothing",
+      "price": 30,
+      "images": [
+        "images/Screenshot_2026-08-12_at_10_27.08_PM.jpeg"
+      ],
+      "alt": "Vintage green floral midi skirt with a tie waist",
+      "stripeLink": "",
+      "sold": false
+    }
+  ]
+}
