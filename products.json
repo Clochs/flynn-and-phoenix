@@ -4,7 +4,7 @@
       "id": "moth-bone-dome",
       "name": "Moth & Bone Dome",
       "category": "art",
-      "price": 68,
+      "price": 75,
       "images": [
         "images/IMG_4282.jpeg"
       ],
@@ -16,7 +16,7 @@
       "id": "skull-succulent-dome",
       "name": "Skull & Succulent Dome",
       "category": "art",
-      "price": 58,
+      "price": 60,
       "images": [
         "images/IMG_4307.jpeg"
       ],
@@ -28,7 +28,7 @@
       "id": "carnelian-amethyst-globe",
       "name": "Carnelian & Amethyst Globe",
       "category": "art",
-      "price": 42,
+      "price": 45,
       "images": [
         "images/IMG_4289.jpeg"
       ],
@@ -162,7 +162,7 @@
       "id": "skull-toadstool-duo-dome",
       "name": "Skull & Toadstool Dome",
       "category": "art",
-      "price": 25,
+      "price": 45,
       "images": [
         "images/IMG_4906.jpeg"
       ],
@@ -211,7 +211,7 @@
       "id": "claw-shell-globe",
       "name": "Claw & Shell Globe",
       "category": "art",
-      "price": 25,
+      "price": 40,
       "images": [
         "images/IMG_4912.jpeg"
       ],
